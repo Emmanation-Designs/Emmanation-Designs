@@ -1,19 +1,19 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import WhatsAppBubble from './WhatsAppBubble';
-import BackgroundElements from './BackgroundElements';
+import ScrollProgress from './ScrollProgress';
+import { SvgSymbols } from './SvgSymbols';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-black text-slate-100 relative">
-      <BackgroundElements />
+    <div className="min-h-screen flex flex-col">
+      <SvgSymbols />
+      <ScrollProgress />
       <Navbar />
-      <main className="flex-grow relative z-10">
+      <main id="top" className="ed-shell flex-grow">
         {children}
       </main>
       <Footer />
-      <WhatsAppBubble />
     </div>
   );
 }

@@ -1,19 +1,28 @@
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import Layout from '@/components/Layout';
 
 export default function Privacy() {
   return (
     <Layout>
-      <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-slate-900 mb-8">Privacy Policy</h1>
-        <div className="prose prose-slate max-w-none text-slate-600">
+      <div className="pt-28 md:pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[#1E3A8A] dark:text-blue-400 hover:underline mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to Home</span>
+        </Link>
+        <h1 className="font-display text-4xl font-bold text-slate-900 dark:text-white mb-8">Privacy Policy</h1>
+        <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
           <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
           
-          <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">1. Introduction</h2>
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">1. Introduction</h2>
           <p>
             Welcome to Emmanation Designs. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">2. Data We Collect</h2>
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">2. Data We Collect</h2>
           <p>
             We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
           </p>
@@ -23,7 +32,7 @@ export default function Privacy() {
             <li><strong>Project Data:</strong> includes details about your project requirements, budget, and timeline.</li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">3. How We Use Your Data</h2>
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">3. How We Use Your Data</h2>
           <p>
             We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
           </p>
@@ -34,12 +43,12 @@ export default function Privacy() {
           </ul>
           <p>We do not sell your personal data to third parties.</p>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">4. Data Security</h2>
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">4. Data Security</h2>
           <p>
             We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">5. Contact Us</h2>
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">5. Contact Us</h2>
           <p>
             If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:emmanationdesigns@gmail.com" className="text-blue-600 hover:underline">emmanationdesigns@gmail.com</a>.
           </p>

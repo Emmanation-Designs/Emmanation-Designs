@@ -1,186 +1,132 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { cn } from '@/lib/utils';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+const NAV_ITEMS = [
+  { label: 'About', hash: 'about' },
+  { label: 'Services', hash: 'services' },
+  { label: 'Work', hash: 'work' },
+  { label: 'Process', hash: 'process' },
+  { label: 'Why us', hash: 'why' },
+  { label: 'Idea lab', hash: 'lab' },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    setOpen(false);
 
-      // Active section detection
+    if (hash === 'top') {
       if (isHome) {
-        const sections = ['hero', 'about', 'services', 'process', 'portfolio'];
-        let current = '';
-        
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom >= 150) {
-              current = section;
-              break;
-            }
-          }
-        }
-        setActiveSection(current);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
       }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHome]);
-
-  const navLinks = [
-    { name: 'Home', href: '/#hero', id: 'hero' },
-    { name: 'About', href: '/#about', id: 'about' },
-    { name: 'Services', href: '/#services', id: 'services' },
-    { name: 'Process', href: '/#process', id: 'process' },
-    { name: 'Portfolio', href: '/#portfolio', id: 'portfolio' },
-  ];
-
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
-    if (!isHome && href.startsWith('/#')) {
       return;
     }
-    
-    if (isHome && href.startsWith('/#')) {
-      const elementId = href.replace('/#', '');
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+
+    if (isHome) {
+      const el = document.getElementById(hash);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        if (window.history?.replaceState) {
+          window.history.replaceState(null, '', `#${hash}`);
+        }
       }
+    } else {
+      navigate(`/#${hash}`);
     }
   };
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-      <nav
-        className={cn(
-          'transition-all duration-500 ease-out border border-white/10',
-          scrolled 
-            ? 'bg-black/80 backdrop-blur-xl rounded-full py-3 px-6 shadow-2xl shadow-blue-900/10 w-full max-w-5xl' 
-            : 'bg-transparent border-transparent py-4 px-4 w-full max-w-7xl'
-        )}
-      >
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-14 h-14 rounded-full overflow-hidden border border-white/10 group-hover:border-blue-500/50 transition-colors">
-              <img src="/logo.png" alt="Emmanation Designs Logo" className="w-full h-full object-cover" />
-            </div>
-            <span className="text-xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors hidden sm:block">
-              Emmanation
-            </span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              isHome ? (
-                <a
-                  key={link.name}
-                  href={link.href.replace('/', '')}
-                  className={cn(
-                    "text-sm font-medium transition-colors relative group",
-                    activeSection === link.id ? "text-white" : "text-slate-400 hover:text-white"
-                  )}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                >
-                  {link.name}
-                  <span className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 bg-blue-500 transition-all duration-300",
-                    activeSection === link.id ? "w-full" : "w-0 group-hover:w-full"
-                  )} />
-                </a>
-              ) : (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </Link>
-              )
-            ))}
-            <a
-              href="#services"
-              onClick={(e) => {
-                if (isHome) {
-                  e.preventDefault();
-                  handleNavClick('/#services');
-                }
-              }}
-              className={cn(
-                "px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300",
-                "bg-white text-black hover:bg-blue-50 hover:scale-105"
-              )}
-            >
-              Get Started
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsOpen(!isOpen)}
+    <>
+      <header className="ed-header">
+        <div className="w nav">
+          <a
+            className="brand"
+            href="/#top"
+            aria-label="Emmanation Designs home"
+            onClick={(e) => handleHashClick(e, 'top')}
           >
-            {isOpen ? <X /> : <Menu />}
-          </button>
-        </div>
+            <svg className="mk" aria-hidden="true">
+              <use href="#m" />
+            </svg>
+            <span>Emmanation</span>
+          </a>
 
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, marginTop: 0 }}
-              animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
-              exit={{ opacity: 0, height: 0, marginTop: 0 }}
-              className="md:hidden overflow-hidden bg-slate-900/90 backdrop-blur-xl rounded-2xl border border-white/10"
+          <nav aria-label="Main">
+            <button
+              id="tg"
+              type="button"
+              aria-expanded={open}
+              aria-controls="menu"
+              onClick={() => setOpen((prev) => !prev)}
             >
-              <div className="px-4 py-6 space-y-4 flex flex-col">
-                {navLinks.map((link) => (
-                  isHome ? (
-                    <a
-                      key={link.name}
-                      href={link.href.replace('/', '')}
-                      className={cn(
-                        "text-lg font-medium transition-colors",
-                        activeSection === link.id ? "text-blue-400" : "text-slate-300 hover:text-blue-400"
-                      )}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link
-                      key={link.name}
-                      to={link.href}
-                      className="text-lg font-medium text-slate-300 hover:text-blue-400 transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  )
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {open ? 'Close' : 'Menu'}
+            </button>
+
+            <ul id="menu" className={open ? 'op' : undefined}>
+              {NAV_ITEMS.map((item) => (
+                <li key={item.hash}>
+                  <a
+                    href={`/#${item.hash}`}
+                    onClick={(e) => handleHashClick(e, item.hash)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  className="bk"
+                  href="/#contact"
+                  onClick={(e) => handleHashClick(e, 'contact')}
+                >
+                  Let’s talk
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <nav className="bn" aria-label="Quick navigation">
+        <a href="/#top" onClick={(e) => handleHashClick(e, 'top')}>
+          <svg className="mk" aria-hidden="true">
+            <use href="#m" />
+          </svg>
+          Home
+        </a>
+        <a href="/#services" onClick={(e) => handleHashClick(e, 'services')}>
+          <svg className="ic" aria-hidden="true">
+            <use href="#i-code" />
+          </svg>
+          Services
+        </a>
+        <a href="/#work" onClick={(e) => handleHashClick(e, 'work')}>
+          <svg className="ic" aria-hidden="true">
+            <use href="#i-web" />
+          </svg>
+          Work
+        </a>
+        <a href="/#lab" onClick={(e) => handleHashClick(e, 'lab')}>
+          <svg className="ic" aria-hidden="true">
+            <use href="#i-ai" />
+          </svg>
+          Idea lab
+        </a>
+        <a href="/#contact" onClick={(e) => handleHashClick(e, 'contact')}>
+          <svg className="ic" aria-hidden="true">
+            <use href="#i-chat" />
+          </svg>
+          Contact
+        </a>
       </nav>
-    </div>
+    </>
   );
 }
