@@ -253,7 +253,7 @@ export default function Hero() {
             <svg viewBox="0 0 320 240" aria-hidden="true">
               <defs>
                 <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#2447FF" />
+                  <stop offset="0" stopColor="#1E3A8A" />
                   <stop offset="1" stopColor="#8FA7FF" />
                 </linearGradient>
               </defs>
@@ -281,7 +281,7 @@ export default function Hero() {
                   cx="38"
                   cy="37"
                   r="4"
-                  fill="#2447FF"
+                  fill="#1E3A8A"
                   style={{ '--i': 2 } as React.CSSProperties}
                   className="s"
                 />
@@ -343,7 +343,7 @@ export default function Hero() {
                   width="72"
                   height="26"
                   rx="13"
-                  fill="#2447FF"
+                  fill="#1E3A8A"
                   style={{ '--i': 6 } as React.CSSProperties}
                   className="s"
                 />
@@ -364,7 +364,7 @@ export default function Hero() {
                   width="20"
                   height="28"
                   rx="5"
-                  fill="#2447FF"
+                  fill="#1E3A8A"
                   stroke="none"
                 />
                 <rect
@@ -386,7 +386,7 @@ export default function Hero() {
                   width="20"
                   height="34"
                   rx="5"
-                  fill="#2447FF"
+                  fill="#1E3A8A"
                   stroke="none"
                 />
                 <rect
@@ -408,7 +408,7 @@ export default function Hero() {
                 y="26"
                 width="24"
                 height="24"
-                fill="#2447FF"
+                fill="#1E3A8A"
               />
               <circle
                 className="rp"
@@ -416,7 +416,7 @@ export default function Hero() {
                 cy="145"
                 r="8"
                 fill="none"
-                stroke="#2447FF"
+                stroke="#1E3A8A"
                 strokeWidth="2"
               />
               <g transform="translate(76 144)">

@@ -24,7 +24,7 @@ export default function CaseStudy() {
           </p>
           <Link
             to="/#work"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#2447FF] text-white text-sm font-semibold hover:bg-[#0B193F] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1E3A8A] text-white text-sm font-semibold hover:bg-[#0B193F] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Work</span>
@@ -40,7 +40,7 @@ export default function CaseStudy() {
         <div className="mb-8">
           <Link
             to="/#work"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#2447FF] hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#1E3A8A] hover:underline"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Work</span>
@@ -49,7 +49,7 @@ export default function CaseStudy() {
 
         {/* Header */}
         <header className="max-w-4xl space-y-5 pb-12 border-b border-[#D5DBEC]">
-          <p className="text-xs font-mono text-[#2447FF]">
+          <p className="text-xs font-mono text-[#1E3A8A]">
             {project.category}
           </p>
           <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0B193F] leading-tight text-balance">

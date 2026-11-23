@@ -42,12 +42,16 @@ export default function Footer() {
             <a
               className="brand"
               href="/#top"
+              aria-label="Emmanation Designs home"
               onClick={(e) => handleHashClick(e, 'top')}
             >
-              <svg className="mk" aria-hidden="true">
-                <use href="#m" />
-              </svg>
-              <span>Emmanation Designs</span>
+              <span className="brand-logo-wrap">
+                <img
+                  src="/assets/aistudio/IMG-20260714-WA0288_1__cec3d494.jpg"
+                  alt="Emmanation Designs"
+                  className="brand-logo"
+                />
+              </span>
             </a>
           </div>
 

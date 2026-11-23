@@ -21,7 +21,7 @@ export default function BrandMark({ className }: BrandMarkProps) {
     >
       {!imgError ? (
         <img
-          src="/mylogo.png"
+          src="/assets/aistudio/IMG-20260714-WA0288_1__cec3d494.jpg"
           alt="Emmanation Designs Logo"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover"

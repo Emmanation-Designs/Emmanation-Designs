@@ -26,7 +26,7 @@ export default function ServicePageTemplate({
       <div className="pt-28 md:pt-36 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-[#0B193F]">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#2447FF] hover:underline mb-8"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#1E3A8A] hover:underline mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
@@ -38,7 +38,7 @@ export default function ServicePageTemplate({
           transition={{ duration: 0.4 }}
           className="pb-14 border-b border-[#D5DBEC]"
         >
-          <div className="w-12 h-12 rounded-2xl bg-white border border-[#D5DBEC] flex items-center justify-center text-[#2447FF] mb-6">
+          <div className="w-12 h-12 rounded-2xl bg-white border border-[#D5DBEC] flex items-center justify-center text-[#1E3A8A] mb-6">
             <service.icon className="w-6 h-6" />
           </div>
 
@@ -52,7 +52,7 @@ export default function ServicePageTemplate({
 
           {service.problemSolved && (
             <div className="mt-6 p-5 rounded-2xl bg-white border border-[#D5DBEC] max-w-3xl">
-              <p className="text-xs font-semibold text-[#2447FF] uppercase tracking-wider">
+              <p className="text-xs font-semibold text-[#1E3A8A] uppercase tracking-wider">
                 Business Challenge Solved
               </p>
               <p className="mt-1.5 text-sm sm:text-base text-[#4B5675] leading-relaxed">
@@ -86,7 +86,7 @@ export default function ServicePageTemplate({
                 key={benefit}
                 className="flex items-start gap-3 p-6 rounded-2xl bg-white border border-[#D5DBEC]"
               >
-                <CheckCircle2 className="w-5 h-5 text-[#2447FF] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#1E3A8A] shrink-0 mt-0.5" />
                 <span className="text-sm sm:text-base text-[#0B193F] font-medium leading-snug">
                   {benefit}
                 </span>

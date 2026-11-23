@@ -76,7 +76,7 @@ export default function ServiceModal({
         >
           <div className="p-5 sm:p-6 border-b border-[#D5DBEC] flex justify-between items-center sticky top-0 bg-white/95 backdrop-blur z-10">
             <div className="flex items-center gap-3">
-              <service.icon className="w-5 h-5 text-[#2447FF] shrink-0" />
+              <service.icon className="w-5 h-5 text-[#1E3A8A] shrink-0" />
               <h3 className="font-display text-lg sm:text-xl font-bold text-[#0B193F]">
                 {service.title} Inquiry
               </h3>

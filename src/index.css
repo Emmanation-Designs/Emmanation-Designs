@@ -15,8 +15,8 @@
 :root {
   --navy: #0B193F;
   --ink: #060D24;
-  --blue: #2447FF;
-  --sky: #7C98FF;
+  --blue: #1E3A8A;
+  --sky: #60A5FA;
   --bg: #F2F4FA;
   --line: #D5DBEC;
   --mut: #4B5675;
@@ -205,13 +205,31 @@
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
   font: 800 1.25rem "Bricolage Grotesque", system-ui, sans-serif;
   letter-spacing: -0.02em;
   color: var(--navy);
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 74px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 130px;
+  height: 130px;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
 }
 
 .brand .mk {
@@ -297,7 +315,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(520px circle at var(--gx, 72%) var(--gy, 28%), rgba(36, 71, 255, 0.13), transparent 60%);
+  background: radial-gradient(520px circle at var(--gx, 72%) var(--gy, 28%), rgba(30, 58, 138, 0.13), transparent 60%);
   pointer-events: none;
 }
 
@@ -356,7 +374,7 @@
   right: 0;
   bottom: -0.06em;
   height: 0.16em;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5Q5 0 10 5T20 5T30 5T40 5' fill='none' stroke='%232447FF' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left bottom / 40px 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5Q5 0 10 5T20 5T30 5T40 5' fill='none' stroke='%231E3A8A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left bottom / 40px 10px;
   animation: ul 1.4s 0.9s cubic-bezier(0.6, 0, 0.2, 1) backwards;
 }
 
@@ -435,7 +453,7 @@
   aspect-ratio: 1;
   left: -8%;
   top: -20%;
-  background: #1C3FFF;
+  background: #1E3A8A;
   animation: f1 14s ease-in-out infinite alternate;
 }
 
@@ -444,7 +462,7 @@
   aspect-ratio: 1;
   right: -5%;
   bottom: -30%;
-  background: #5B7BFF;
+  background: #3B82F6;
   animation: f2 11s ease-in-out infinite alternate;
 }
 
@@ -453,8 +471,8 @@
   aspect-ratio: 1;
   left: 35%;
   top: 25%;
-  background: #0A8FFF;
-  opacity: 0.7;
+  background: #60A5FA;
+  opacity: 0.55;
   animation: f3 9s ease-in-out infinite alternate;
 }
 
@@ -907,7 +925,7 @@
   height: 160px;
   flex: none;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--blue), 0 24px 40px -18px rgba(36, 71, 255, 0.7);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--blue), 0 24px 40px -18px rgba(30, 58, 138, 0.7);
 }
 
 .fp img {
@@ -1050,7 +1068,7 @@
 .tm textarea:focus {
   outline: none;
   border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(36, 71, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.18);
 }
 
 .tm .ed-btn.o {
@@ -1131,7 +1149,7 @@
 .fm textarea:focus {
   outline: none;
   border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(36, 71, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.15);
 }
 
 .fm [aria-invalid="true"] {
@@ -1180,6 +1198,16 @@
   font: 800 clamp(2.4rem, 8vw, 7rem) / 1 "Bricolage Grotesque", system-ui, sans-serif;
   letter-spacing: -0.04em;
   margin-bottom: 64px;
+}
+
+.ed-footer .brand-logo-wrap {
+  width: 144px;
+  height: 112px;
+}
+
+.ed-footer .brand-logo {
+  width: 196px;
+  height: 196px;
 }
 
 .ed-footer .brand .mk {
