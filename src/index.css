@@ -20,8 +20,6 @@
   --bg: #F2F4FA;
   --line: #D5DBEC;
   --mut: #4B5675;
-  --bl: 62vw;
-  --bw: min(11vw, 150px);
   color-scheme: light;
 }
 
@@ -214,22 +212,19 @@
 }
 
 .brand-logo-wrap {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 96px;
-  height: 74px;
-  overflow: hidden;
+  height: 64px;
   flex-shrink: 0;
 }
 
 .brand-logo {
-  width: 130px;
-  height: 130px;
+  height: 100%;
+  width: auto;
   max-width: none;
   object-fit: contain;
   display: block;
-  mix-blend-mode: multiply;
 }
 
 .brand .mk {
@@ -334,37 +329,9 @@
   position: relative;
 }
 
-.hero > .bar {
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: var(--hb, 0px);
-  left: var(--bl);
-  width: var(--bw);
-  max-width: none;
-  background: var(--blue);
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero > .bar h1 {
-  position: absolute;
-  top: var(--hy, 150px);
-  left: calc(var(--hx, 24px) - var(--bl));
-  color: #fff;
-  width: var(--hw, 100%);
-  white-space: normal;
-  margin: 0;
-}
-
 .hl {
   color: var(--blue);
   position: relative;
-}
-
-.bar .hl {
-  color: #fff;
 }
 
 .hh > h1 .hl::after {
@@ -1201,13 +1168,12 @@
 }
 
 .ed-footer .brand-logo-wrap {
-  width: 144px;
-  height: 112px;
+  height: 96px;
 }
 
 .ed-footer .brand-logo {
-  width: 196px;
-  height: 196px;
+  height: 100%;
+  width: auto;
 }
 
 .ed-footer .brand .mk {
@@ -1297,10 +1263,6 @@
 }
 
 @media (max-width: 720px) {
-  :root {
-    --bl: 90vw;
-    --bw: min(6.5vw, 24px);
-  }
   .shots {
     flex-direction: column;
     align-items: stretch;
@@ -1413,9 +1375,6 @@
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto;
-  }
-  .bar {
-    display: none !important;
   }
   .rv {
     opacity: 1 !important;

@@ -55,7 +55,7 @@ export default function Navbar() {
           >
             <span className="brand-logo-wrap">
               <img
-                src="/assets/aistudio/IMG-20260714-WA0288_1__cec3d494.jpg"
+                src="/assets/aistudio/emmanation-designs-logo__1__cfee047e.svg"
                 alt="Emmanation Designs"
                 className="brand-logo"
               />

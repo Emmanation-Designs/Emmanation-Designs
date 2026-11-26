@@ -15,16 +15,15 @@ export default function BrandMark({ className }: BrandMarkProps) {
   return (
     <div
       className={cn(
-        'w-9 h-9 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0C1324] flex items-center justify-center shrink-0',
+        'w-10 h-9 flex items-center justify-center shrink-0',
         className
       )}
     >
       {!imgError ? (
         <img
-          src="/assets/aistudio/IMG-20260714-WA0288_1__cec3d494.jpg"
+          src="/assets/aistudio/emmanation-designs-logo__1__cfee047e.svg"
           alt="Emmanation Designs Logo"
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           onError={() => setImgError(true)}
         />
       ) : (

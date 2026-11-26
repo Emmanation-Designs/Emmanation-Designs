@@ -11,45 +11,11 @@ const ROTATING_WORDS = [
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const hhRef = useRef<HTMLDivElement>(null);
-  const h1Ref = useRef<HTMLHeadingElement>(null);
   const artRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [wordIndex, setWordIndex] = useState(0);
   const [fading, setFading] = useState(false);
-
-  // Sync blue bar headline position & bounds (--hw, --hx, --hy, --hb)
-  useEffect(() => {
-    const syncHeroBar = () => {
-      const hr = heroRef.current;
-      const h = h1Ref.current;
-      const art = artRef.current;
-      if (!hr || !h || !art) return;
-
-      const a = hr.getBoundingClientRect();
-      const b = h.getBoundingClientRect();
-      const f = art.getBoundingClientRect();
-      hr.style.setProperty('--hw', `${b.width}px`);
-      hr.style.setProperty('--hx', `${b.left - a.left}px`);
-      hr.style.setProperty('--hy', `${b.top - a.top}px`);
-      hr.style.setProperty('--hb', `${a.bottom - f.bottom}px`);
-    };
-
-    syncHeroBar();
-    window.addEventListener('resize', syncHeroBar);
-    if (document.fonts) {
-      document.fonts.ready.then(syncHeroBar);
-    }
-    const ro = new ResizeObserver(syncHeroBar);
-    if (hhRef.current) ro.observe(hhRef.current);
-    if (heroRef.current) ro.observe(heroRef.current);
-
-    return () => {
-      window.removeEventListener('resize', syncHeroBar);
-      ro.disconnect();
-    };
-  }, []);
 
   // Rotating word animation
   useEffect(() => {
@@ -197,16 +163,10 @@ export default function Hero() {
       ref={heroRef}
       onPointerMove={handleHeroPointerMove}
     >
-      <div className="bar" aria-hidden="true">
-        <h1>
-          Bringing <span className="hl">imaginations</span> to life.
-        </h1>
-      </div>
-
       <div className="w">
         <p className="lbl">Creative technology studio</p>
-        <div className="hh" id="hh" ref={hhRef}>
-          <h1 ref={h1Ref}>
+        <div className="hh" id="hh">
+          <h1>
             Bringing <span className="hl">imaginations</span> to life.
           </h1>
         </div>
